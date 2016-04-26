@@ -1,0 +1,33 @@
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+
+class Img_Relocation extends CI_Controller {
+	function __construct(){
+		parent::__construct();
+		$this->load->helper('url');
+	}
+	public function index(){
+		$columnNum="3";
+
+		$csvData="김,이,박 \n,최,봉,윤 \n,옥,정,이";
+		var_dump($csvData);
+		echo "<br>";
+		$csvData=explode(" \n,",$csvData);
+		$num1=count($csvData);
+		var_dump($csvData);
+		var_dump($num1);
+		echo "<br>";	
+		$csvData[0]=explode(",",$csvData[0]);
+		var_dump($csvData[0]);
+
+		exit;
+		$this->load->view('n_top');
+		$this->load->view('nametag/img_Relocation',array('columnNum'=>$columnNum,'csvData'=>$csvData));
+		$this->load->view('n_footer');
+	}
+	public function relocationProcess(){
+
+		//redirect('/pdf_Ready');
+	}
+}
+
